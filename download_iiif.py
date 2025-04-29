@@ -21,7 +21,7 @@ def main():
     images_dir.mkdir(parents=True, exist_ok=True)
     canvases = manifest.get("sequences", [{}])[0].get("canvases", [])
     for canvas in canvases:
-        # get the last segment of the @id URL
+        # Get the last segment of the @id URL as the image/page identifier
         canvas_id = canvas.get("@id", "").split("/")[-1]
         image_url = canvas.get("images", [{}])[0].get("resource", {}).get("@id", "")
         if not image_url:
